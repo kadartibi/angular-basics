@@ -1,3 +1,4 @@
+import { CoursesService } from './courses.sevice';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -16,7 +17,9 @@ import { CourseComponent } from './course/course.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    CoursesService //Only making a single instance in memory (Singleton)
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

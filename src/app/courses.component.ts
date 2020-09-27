@@ -1,3 +1,4 @@
+import { CoursesService } from './courses.sevice';
 import { Component } from '@angular/core';
 
 
@@ -17,5 +18,15 @@ import { Component } from '@angular/core';
 })
 export class CoursesComponent{
     title = "List of courses"
-    courses = ["course1", "course2", "course3"];
+    courses;
+    //Logic to call HTTP service to get data
+        //-- It depends on http endpoint and hard to test
+        //-- Maybe we need this data somewhere else too
+        //-- we should use only presentation logic here
+        // => use services
+    
+    constructor(service: CoursesService){ 
+        // we need to register CoursesService as a provider to make DI work
+        this.courses = service.getCourses();
+    }
 }
